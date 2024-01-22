@@ -1,6 +1,6 @@
 #include <IRremote.hpp>  // Including the IRremote library
 
-#define IR_RECEIVE_PIN 3 // Define the IR receiver pin
+#define IR_RECEIVE_PIN A0 // Define the IR receiver pin
 
 uint16_t kommando = 0; // Variable to store the received command
 
@@ -60,17 +60,27 @@ void maine(int kommando) { // Function to handle commands received from IR
 //set "speed" actually means set amount of electricity given, but that decides speed and is therefore called speed below
 
 void forward() {
-  digitalWrite(4, HIGH); // Left motor forward
+  digitalWrite(4, LOW); // Left motor forward
   analogWrite(5, 100); // Set speed for left motor
-  digitalWrite(2, HIGH); // Right motor forward
+  digitalWrite(2, LOW); // Right motor forward
   analogWrite(9, 100); // Set speed for right motor
+
+  digitalWrite(13, HIGH); //left motor 2 forward
+  analogWrite(11, 100); // Set speed for left motor 2
+  digitalWrite(12, HIGH); // Right motor 2 forward
+  analogWrite(3, 100); // Set speed for right motor 2
 }
 
 void backward() {
-  digitalWrite(4, LOW); // Left motor backward
+  digitalWrite(4, HIGH); // Left motor backward
   analogWrite(5, 100); // Set speed for left motor
-  digitalWrite(2, LOW); // Right motor backward
+  digitalWrite(2, HIGH); // Right motor backward
   analogWrite(9, 100); // Set speed for right motor
+
+  digitalWrite(13, LOW); //left motor 2 forward
+  analogWrite(11, 100); // Set speed for left motor 2
+  digitalWrite(12, LOW); // Right motor 2 forward
+  analogWrite(3, 100); // Set speed for right motor 2
 }
 
 void right() {
@@ -78,6 +88,11 @@ void right() {
   analogWrite(5, 100); // Set speed for left motor
   digitalWrite(2, HIGH); // Right motor forward
   analogWrite(9, 100); // Set speed for right motor
+
+  digitalWrite(13, HIGH); //left motor 2 forward
+  analogWrite(11, 100); // Set speed for left motor 2
+  digitalWrite(12, LOW); // Right motor 2 forward
+  analogWrite(3, 100); // Set speed for right motor 2
 }
 
 void left() {
@@ -85,9 +100,17 @@ void left() {
   analogWrite(5, 100); // Set speed for left motor
   digitalWrite(2, LOW); // Right motor backward
   analogWrite(9, 100); // Set speed for right motor
+
+  digitalWrite(13, LOW); //left motor 2 forward
+  analogWrite(11, 100); // Set speed for left motor 2
+  digitalWrite(12, HIGH); // Right motor 2 forward
+  analogWrite(3, 100); // Set speed for right motor 2
 }
 
 void broms() {
   analogWrite(5, 0); // Stop left motor
   analogWrite(9, 0); // Stop right motor
+
+  analogWrite(11, 0); // Set speed for left motor 2
+  analogWrite(3, 0); // Set speed for right motor 2
 }
