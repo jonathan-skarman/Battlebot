@@ -46,6 +46,12 @@ void maine(int kommando) { // Function to handle commands received from IR
     case 68:
       left(); // Perform left turn action
       break;
+    case 22:
+      snurr();
+      break;
+    case 13:
+      slutaSnurr();
+      break;
     default:
       // Handle default case if needed
       break;
@@ -113,4 +119,12 @@ void broms() {
 
   analogWrite(11, 0); // Set speed for left motor 2
   analogWrite(3, 0); // Set speed for right motor 2
+}
+
+void snurr() {
+  digitalWrite(3, HIGH);
+}
+
+void slutaSnurr() {
+  digitalWrite(3, LOW);
 }
