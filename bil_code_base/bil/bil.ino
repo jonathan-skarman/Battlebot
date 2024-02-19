@@ -47,10 +47,10 @@ void maine(int kommando) { // Function to handle commands received from IR
       left(); // Perform left turn action
       break;
     case 22:
-      snurr();
+      snurr(); // Starts whip motor
       break;
     case 13:
-      slutaSnurr();
+      slutaSnurr(); // Stops whip motor
       break;
     default:
       // Handle default case if needed
@@ -122,9 +122,9 @@ void broms() {
 }
 
 void snurr() {
-  digitalWrite(3, HIGH);
+  digitalWrite(3, HIGH); // Starts whip motor
 }
 
 void slutaSnurr() {
-  digitalWrite(3, LOW);
+  digitalWrite(3, LOW); // Stops whip motor
 }
