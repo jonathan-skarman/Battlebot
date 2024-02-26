@@ -21,9 +21,6 @@ void loop() { // Main loop
     maine(kommando); // Call the 'maine' function with the received command
     IrReceiver.resume(); // Resume receiving IR signals
   }
-  else {
-    maine(kommando); // Call 'maine' function with the stored command if no new signal is received
-  }
 }
 
 //---------------------------------------------------------------
@@ -31,19 +28,19 @@ void loop() { // Main loop
 void maine(int kommando) { // Function to handle commands received from IR
 
   switch (kommando) { // Switch-case to perform actions based on the received command
-    case 70:
+    case 90:
       forward(); // Perform forward action
       break;
-    case 21:
+    case 8:
       backward(); // Perform backward action
       break;
-    case 64:
+    case 28:
       broms(); // Perform braking action
       break;
-    case 67:
+    case 82:
       right(); // Perform right turn action
       break;
-    case 68:
+    case 24:
       left(); // Perform left turn action
       break;
     case 22:
@@ -56,7 +53,7 @@ void maine(int kommando) { // Function to handle commands received from IR
       // Handle default case if needed
       break;
   }
-  delay(1000); // Delay after performing the action
+  delay(100); // Delay after performing the action
 }
 
 /*----------*/
